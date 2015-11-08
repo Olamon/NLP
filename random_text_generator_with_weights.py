@@ -34,7 +34,7 @@ def init_grams(bigram_k, trigram_k):
             bigrams[w1] = []
             bigrams_cnt[w1] = []
         bigrams[w1].append(w2)
-        all_bigrams.append[w1 + ' ' + w2]
+        all_bigrams.append(w1 + ' ' + w2)
         bigrams_cnt[w1].append(float(cnt))
         all_bigram_cnt += float(cnt)
         all_bigrams_cnt.append(float(cnt))
@@ -62,19 +62,19 @@ def generate_text():
     phrase = get_bigram_seed()
     sys.stdout.write(phrase) 
     next_word_possible = trigrams.get(phrase, [])
-    next_words_possible_cnt = trigrams_cnt.get(phrase, [])
+    next_word_possible_cnt = trigrams_cnt.get(phrase, [])
     if not next_word_possible:
         next_word_possible = bigrams.get(phrase.split(' ')[1], [])
-        next_words_possible_cnt = bigrams_cnt.get(phrase.split(' ')[1], [])
+        next_word_possible_cnt = bigrams_cnt.get(phrase.split(' ')[1], [])
     while next_word_possible:
-        next_word = numpy.random.choice(next_word_possible, p=[next_words_possible_cnt[x]/sum(next_words_possible_cnt) for x in next_word_possible])
-        sys.stdout.write(next_word)
+        next_word = numpy.random.choice(next_word_possible, p=[x/sum(next_word_possible_cnt) for x in next_word_possible_cnt])
+        sys.stdout.write(' ' + next_word)
         phrase = phrase.split(' ')[1] + ' ' + next_word
         next_word_possible = trigrams.get(phrase, [])
-        next_words_possible_cnt = trigrams_cnt.get(phrase, [])
+        next_word_possible_cnt = trigrams_cnt.get(phrase, [])
         if not next_word_possible:
             next_word_possible = bigrams.get(next_word, [])
-            next_words_possible_cnt = bigrams_cnt.get(next_word, [])
+            next_word_possible_cnt = bigrams_cnt.get(next_word, [])
 def main():
     init_grams(50, 50)
     input_text = raw_input('More? If so type \'Y\'.')
