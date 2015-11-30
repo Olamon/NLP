@@ -24,6 +24,8 @@ def read_morf_dict():
         word1,word2 = line.strip().split(' ')[0:2]
         word1 = delete_interp(unicode(word1, 'utf-8'))
         word2 = delete_interp(unicode(word2, 'utf-8'))
+        if not word1 or not word2:
+            continue
         if not word1 in good_lemmas:
             good_lemmas[word1] = []
         good_lemmas[word1].append(word2)
