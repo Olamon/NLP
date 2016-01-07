@@ -8,6 +8,11 @@
 
 hasTag(Word, Tag) :- tagAndBase(Word,_Base,Tag).
 hasTag(w, prep:loc).
+hasTag(ze, prep:loc).
+hasTag(z, prep:loc).
+hasTag(z, prep:gen).
+hasTag(ze, prep:gen).
+hasTag(dla, prep:gen).
 hasBase(Word, Base) :- tagAndBase(Word,Base,_Tag).
  
 :- op(1050, xfx, ==>).
@@ -20,6 +25,8 @@ hasBase(Word, Base) :- tagAndBase(Word,Base,_Tag).
 likeAdj(adj:L:P:R:_, L, P, R).
 likeAdj(ppas:L:P:R:_, L, P, R).
 likeAdj(num:L:P:R:_, L, P, R).
+likeAdj(pact:L:P:R:_:_, L, P, R).
+likeAdj(ppron3:pl:gen:f:_:_:npraep, pl, gen, f).
 
 whatever ==> [X], {not(hasTag(X, interp))}.
 whatever ==> [X], whatever, {not(hasTag(X, interp))}.
@@ -29,7 +36,7 @@ np(L,P,R) ==> np(L,P,R), adj(L,P,R).
 np(L,P,R) ==> np(L,P,R), preph.
 np(L,P,R) ==> np(L,P,R), np(_,gen,_).
 np(pl,P,R1) ==> np(_,P,R1), [i], np(_,P,_R2).
-np(pl,P,R1) ==> np(_,P,R1), [oraz], np(_,P,_R2).
+%np(pl,P,R1) ==> np(_,P,R1), [oraz], np(_,P,_R2).
 np(L,P,R) ==> [X], {hasTag(X,subst:L:P:R)}.
 np(L,P,R) ==> [X], {hasTag(X,ger:L:P:R:_:_)}.
 np(L,P,R) ==> [X], [PRZY], np(_,P1,_), {hasTag(X,subst:P:L:R), hasBase(X,B), walenty(B,PRZY,P1)}.
@@ -40,13 +47,15 @@ np(L,P,R) ==> [X], adj(L,P,R), [PRZY], np(_,P1,_), {hasTag(X,subst:P:L:R), hasBa
 %np(L,P,R) ==> [X], {hasTag(X,ppron3:L:P:R:_)}.
 np(L,P,R) ==> np(L,P,R), [','], [X], whatever, [Z], {hasBase(X,'który'), hasTag(Z,interp)}.
 np(L,P,R) ==> np(L,P,R), [','], [PRZY], [X], whatever, [Z], {hasTag(PRZY, prep:_:_), hasBase(X,'który'), hasTag(Z,interp)}.
+np(L,P,R) ==> np(L,P,R), [','], [PRZY], [X], whatever, [Z], {hasTag(PRZY, prep:_), hasBase(X,'który'), hasTag(Z,interp)}.
 
 adj(L,P,R) ==> [X], {hasTag(X, Tag), likeAdj(Tag,L,P,R)}.
 adj(L,P,R) ==> [X], [Y], {hasTag(X, TagX), likeAdj(TagX,L,P,R), hasTag(Y,TagY), likeAdj(TagY,L,P,R)}.
 adj(L,P,R) ==> [X], [-], [Y], {hasTag(Y, TagY), likeAdj(TagY,L,P,R), hasTag(X, adja)}.
 adj(L,P,R) ==> [aż], [X], {hasTag(X, Tag), likeAdj(Tag,L,P,R)}.
+adj(L,P,R) ==> [X], [Y], {hasTag(X,adv:pos), hasTag(Y,ppas:L:P:R:_)}.
 preph ==> [X], np(_,loc,_), {hasTag(X,prep:loc)}. 
-
+preph ==> [X], np(_,gen,_), {hasTag(X,prep:gen)}. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
