@@ -4,7 +4,6 @@
 
 
 :- [skladnicaTagsBases].
-:- [walenty_subst].
 
 hasTag(Word, Tag) :- tagAndBase(Word,_Base,Tag).
 hasTag(w, prep:loc).
@@ -31,21 +30,14 @@ np(L,P,R) ==> np(L,P,R), np(_,gen,_).
 np(pl,P,R1) ==> np(_,P,R1), [i], np(_,P,_R2).
 np(pl,P,R1) ==> np(_,P,R1), [oraz], np(_,P,_R2).
 np(L,P,R) ==> [X], {hasTag(X,subst:L:P:R)}.
-np(L,P,R) ==> [X], {hasTag(X,ger:L:P:R:_:_)}.
-np(L,P,R) ==> [X], [PRZY], np(_,P1,_), {hasTag(X,subst:P:L:R), hasBase(X,B), walenty(B,PRZY,P1)}.
-np(L,P,R) ==> adj(L,P,R), [X], [PRZY], np(_,P1,_), {hasTag(X,subst:P:L:R), hasBase(X,B), walenty(B,PRZY,P1)}.
-np(L,P,R) ==> [X], adj(L,P,R), [PRZY], np(_,P1,_), {hasTag(X,subst:P:L:R), hasBase(X,B), walenty(B,PRZY,P1)}.
-%np(L,P,R) ==> [X], [Y], {hasTag(X,subst:L:P:R), hasTag(Y,subst:L:P:R)}.
-%np(L,P,R) ==> [X], {hasTag(X,ppron12:L:P:R:_)}.
-%np(L,P,R) ==> [X], {hasTag(X,ppron3:L:P:R:_)}.
+np(L,P,R) ==> [X], [Y], {hasTag(X,subst:L:P:R), hasTag(Y,subst:L:P:R)}.
+np(L,P,R) ==> [X], {hasTag(X,ppron12:L:P:R:_)}.
+np(L,P,R) ==> [X], {hasTag(X,ppron3:L:P:R:_)}.
 np(L,P,R) ==> np(L,P,R), [','], [X], whatever, [Z], {hasBase(X,'który'), hasTag(Z,interp)}.
-np(L,P,R) ==> np(L,P,R), [','], [PRZY], [X], whatever, [Z], {hasTag(PRZY, prep:_:_), hasBase(X,'który'), hasTag(Z,interp)}.
 
 adj(L,P,R) ==> [X], {hasTag(X, Tag), likeAdj(Tag,L,P,R)}.
-adj(L,P,R) ==> [X], [Y], {hasTag(X, TagX), likeAdj(TagX,L,P,R), hasTag(Y,TagY), likeAdj(TagY,L,P,R)}.
-adj(L,P,R) ==> [X], [-], [Y], {hasTag(Y, TagY), likeAdj(TagY,L,P,R), hasTag(X, adja)}.
 adj(L,P,R) ==> [aż], [X], {hasTag(X, Tag), likeAdj(Tag,L,P,R)}.
-preph ==> [X], np(_,loc,_), {hasTag(X,prep:loc)}. 
+preph ==> [X], np(_,_,_), {hasTag(X,prep:_:_)}. 
 
 
 
@@ -54,8 +46,7 @@ preph ==> [X], np(_,loc,_), {hasTag(X,prep:loc)}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 commasToList((X,Y), [X|Rest]) :- 
    !, commasToList(Y,Rest).
-commasToList(X,[X]).   
-
+   commasToList(X,[X]).   
 
 allign( [[W]| Rest], [W|T], Alligment) :-
    !,allign(Rest, T, Alligment). 
@@ -67,31 +58,29 @@ allign( [{C}], [], []) :- C.
 allign( [], [], []).
 
 
-   
 parse(A,TokensToParse) :-
    (A ==> Right),
    commasToList(Right, ListRight),
    allign(ListRight, TokensToParse, Alligment),
    parsePairs(Alligment).
-   
+			      
 parsePairs([]).
 parsePairs([(A,L)| Rest]):-
    parse(A,L),
    parsePairs(Rest).
-
+   
 writeList([A]) :- write(A),!.
 writeList([A|As]):- write(A), write(' '),writeList(As).
-   
+				    
 parse0 :-
    see('phrases.pl'),
    parsing,
    seen.
-
 parsing :-
    repeat,
    read(L),
    analyze(L),
-   L == end_of_file, !.
+   L == end_of_file,!.
 
 analyze(L) :-   
    length(L,N),
@@ -99,8 +88,8 @@ analyze(L) :-
    parse(np(_,_,_), L),
    write('GOOD:'),
    writeList(L),nl,!.
+
 analyze(L) :-
    write('BAD:'), writeList(L),nl,!.
-
 
 :- parse0.
