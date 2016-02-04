@@ -2579,7 +2579,7 @@
 ['amatorzy', 'tanich', 'trunków'].
 ['tanich', 'trunków'].
 ['najbliższy', 'czwartek'].
-['restauracja', 'mcdonald\'s'].
+['restauracja', "mcdonald's"].
 ['swoim', 'ogrodzie'].
 ['oskarżycielem', 'w', 'tym', 'procesie'].
 ['tym', 'procesie'].
@@ -7564,9 +7564,9 @@
 ['koń', 'z', 'furą'].
 ['powrót', 'do', 'pracy'].
 ['swoistym', 'lekarstwem'].
-['dobry', 'rok', 'dla', 'logopedów', 'i', 'specjalistów', 'od', 'image\'u'].
-['logopedów', 'i', 'specjalistów', 'od', 'image\'u'].
-['specjalistów', 'od', 'image\'u'].
+['dobry', 'rok', 'dla', 'logopedów', 'i', 'specjalistów', 'od', "image'u"].
+['logopedów', 'i', 'specjalistów', 'od', "image'u"].
+['specjalistów', 'od', "image'u"].
 ['brytyjski', 'lotniskowiec', ',', 'amerykańskie', 'fregaty', ',', 'hiszpańska', 'piechota', 'morska', ',', 'portugalscy', 'komandosi', ',', 'polscy', 'lotnicy'].
 ['brytyjski', 'lotniskowiec'].
 ['amerykańskie', 'fregaty'].
@@ -8741,11 +8741,11 @@
 ['zwykłym', 'figurantem', ',', 'marionetką'].
 ['zwykłym', 'figurantem'].
 ['gościa', 'z', 'komisu', ',', 'który', 'ściąga', 'auta', 'z', 'holandii'].
-['zbigniew', 'brzeziński', ',', 'doradca', 'prezydenta', 'jimmy\'ego', 'cartera', 'do', 'spraw', 'bezpieczeństwa', ','].
-['brzeziński', ',', 'doradca', 'prezydenta', 'jimmy\'ego', 'cartera', 'do', 'spraw', 'bezpieczeństwa', ','].
-['doradca', 'prezydenta', 'jimmy\'ego', 'cartera', 'do', 'spraw', 'bezpieczeństwa'].
-['prezydenta', 'jimmy\'ego', 'cartera'].
-['jimmy\'ego', 'cartera'].
+['zbigniew', 'brzeziński', ',', 'doradca', 'prezydenta', "jimmy'ego", 'cartera', 'do', 'spraw', 'bezpieczeństwa', ','].
+['brzeziński', ',', 'doradca', 'prezydenta', "jimmy'ego", 'cartera', 'do', 'spraw', 'bezpieczeństwa', ','].
+['doradca', 'prezydenta', "jimmy'ego", 'cartera', 'do', 'spraw', 'bezpieczeństwa'].
+['prezydenta', "jimmy'ego", 'cartera'].
+["jimmy'ego", 'cartera'].
 ['spraw', 'bezpieczeństwa'].
 ['robotników', ',', 'władzy', 'i', 'kościoła', 'w', 'polsce'].
 ['kościoła', 'w', 'polsce'].
@@ -8836,7 +8836,7 @@
 ['centrum', 'wsi'].
 ['pewnej', 'chwili'].
 ['szybki', 'jazgot', 'peema'].
-['wspaniały', ',', 'rock\'n\'rollowy', 'zespół'].
+['wspaniały', ',', "rock'n'rollowy", 'zespół'].
 ['centrum', 'naukowym', 'wielkich', 'jezior', 'w', 'amerykańskim', 'cleveland'].
 ['wielkich', 'jezior'].
 ['amerykańskim', 'cleveland'].
@@ -9484,7 +9484,7 @@
 ['bardzo', 'dziwną', 'sprawą'].
 ['pan', 'weryfikator'].
 ['569', 'lat'].
-['joannę', 'd\'arc'].
+['joannę', "d'arc"].
 ['trzecią', 'szklaneczkę'].
 ['zachowaniu', 'krzywizny', 'kręgosłupa'].
 ['krzywizny', 'kręgosłupa'].
@@ -9997,8 +9997,8 @@
 ['duży', 'wpływ', 'na', 'karola'].
 ['konserwatywne', 'poglądy', 'na', 'małżeństwo', 'i', 'rozwód'].
 ['małżeństwo', 'i', 'rozwód'].
-['ekipa', 'profesora', 'montagne\'a', ',', 'pracująca', 'w', 'instytucie', 'pasteura', 'nad', 'mieszanką', ',', 'prowadzącą', 'do', 'zmiany', 'płci', 'bez', 'konieczności', 'interwencji', 'chirurgicznej', ','].
-['profesora', 'montagne\'a'].
+['ekipa', 'profesora', "montagne'a", ',', 'pracująca', 'w', 'instytucie', 'pasteura', 'nad', 'mieszanką', ',', 'prowadzącą', 'do', 'zmiany', 'płci', 'bez', 'konieczności', 'interwencji', 'chirurgicznej', ','].
+['profesora', "montagne'a"].
 ['instytucie', 'pasteura'].
 ['mieszanką', ',', 'prowadzącą', 'do', 'zmiany', 'płci', 'bez', 'konieczności', 'interwencji', 'chirurgicznej'].
 ['zmiany', 'płci', 'bez', 'konieczności', 'interwencji', 'chirurgicznej'].
